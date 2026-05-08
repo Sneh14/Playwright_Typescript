@@ -1,0 +1,11 @@
+Exception occured while entering product name: Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByTitle('My Account')
+    - locator resolved to <a title="My Account" data-toggle="dropdown" class="dropdown-toggle" href="https://tutorialsninja.com/demo/index.php?route=account/account">…</a>
+  - attempting click action
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - performing click action
+

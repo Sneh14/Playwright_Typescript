@@ -1,0 +1,4 @@
+Exception occured while entering product name: Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('link', { name: 'Login' })
+
