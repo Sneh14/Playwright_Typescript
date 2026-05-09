@@ -20,12 +20,20 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+    # - name: Install Playwright Browsers
+    #   run: npx playwright install --with-deps
+
+    - name: Azure login
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Run Playwright tests
+      env:
+        PLAYWRIGHT_SERVICE_URL : ${{vars.PLAYWRIGHT_SERVICE_URL}}
       # run: npx playwright test
-      run: npm run test:sanity
+      #run: npm run test:sanity
+      run:  npx playwright test --config=playwright.service.config.ts --workers=4
 
     - name : Upload Playwright HTML Report
       if : always()

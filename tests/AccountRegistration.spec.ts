@@ -28,7 +28,7 @@ test.afterEach(async ({ page }) => {
 
 })
 
-test('Account Registration @sanity', async () => {
+test('Account Registration @sanity @regression', async () => {
 
     //Goto my account and click register
     expect(await homePage.isHomePageExists()).toBeTruthy();
