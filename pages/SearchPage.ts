@@ -11,6 +11,7 @@ export class SearchPage{
     private readonly addToCart: Locator;
     private readonly cartTotal : Locator;
     private readonly viewCart : Locator;
+    private readonly noProductFound: Locator;
 
     //Constructor
 
@@ -23,6 +24,7 @@ export class SearchPage{
         this.addToCart = page.getByText("Add to Cart");
         this.cartTotal = page.getByTestId("cart-total");
         this.viewCart = page.getByRole("link",{name:'View Cart'});
+        this.noProductFound = page.getByText('There is no product that matches the search criteria.');
 
         
 
@@ -32,10 +34,13 @@ export class SearchPage{
         return await this.searchCriteria.isVisible();
     }
 
-    async searchProduct(productName:string){
-        await this.searchBar.fill(productName);
+    async clicksearchBtn(){
         await this.searchBtn.click();
 
+    }
+    async searchProduct(productName:string){
+        await this.searchBar.fill(productName);
+        this.clicksearchBtn();
     }
 
     async isProductDisplayed(){
@@ -52,5 +57,9 @@ export class SearchPage{
 
     async clickViewCart(){
         await this.viewCart.click();
+    }
+
+    async noProductFoundMsg(){
+        return await this.noProductFound.isVisible();
     }
 }

@@ -20,6 +20,10 @@ export class LoginPage{
     }
     //Action methods
 
+    async goto(url:string){
+        this.page.goto(url);
+
+    }
     async login(email:string,passwordValue : string){
         await this.emailtxt.fill(email);
         await this.passwordtxt.fill(passwordValue);
